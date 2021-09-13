@@ -1,5 +1,7 @@
 import logoImg from './assets/images/webpack.png'
 import { Logo, Title, Button } from './components'
+import warnning from './templates/warnning.html'
+import './styles/warnning.scss'
 
 const logo = new Logo()
 logo.render()
@@ -12,6 +14,10 @@ button1.render('Confirmar?', logoImg)
 
 const button2 = new Button()
 button2.render('Cancelar')
+
+// Import de HTML
+const body = document.querySelector('body')
+body.innerHTML += warnning
 
 // Babel spread
 const obj = {a: 1, b: 2, c: 3, d:4}
