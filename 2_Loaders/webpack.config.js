@@ -10,7 +10,7 @@ module.exports = {
     module: {
         rules: [
             { test: /\.css$/i, use: ['style-loader','css-loader'] },
-            { test: /\.(png|jpg?g|gif)$/i, use: ['file-loader']},
+            { test: /\.(png|jpg?g|gif)$/i, use: 'file-loader'},
             { test: /\.s[ac]ss$/i, use: ['style-loader', 'css-loader', 'sass-loader']},
             { 
                 test: /\.m?js$/i , 
@@ -23,7 +23,8 @@ module.exports = {
                     }
                 }
             },
-            { test: /.html$/i, use: 'html-loader' }
+            { test: /.html$/i, use: 'html-loader' },
+            { test: /\.txt$/i, use: 'raw-loader' },
         ]
     }
 }

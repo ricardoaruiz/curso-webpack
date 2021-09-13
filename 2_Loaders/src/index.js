@@ -2,6 +2,7 @@ import logoImg from './assets/images/webpack.png'
 import { Logo, Title, Button } from './components'
 import warnning from './templates/warnning.html'
 import './styles/warnning.scss'
+import fraseTxt from './files/frase.txt'
 
 const logo = new Logo()
 logo.render()
@@ -18,6 +19,10 @@ button2.render('Cancelar')
 // Import de HTML
 const body = document.querySelector('body')
 body.innerHTML += warnning
+
+// Import arquivo texto
+const frase = fraseTxt
+console.log('frase:', fraseTxt.toUpperCase())
 
 // Babel spread
 const obj = {a: 1, b: 2, c: 3, d:4}
