@@ -3,6 +3,7 @@ import { Logo, Title, Button } from './components'
 import warnning from './templates/warnning.html'
 import './styles/warnning.scss'
 import fraseTxt from './files/frase.txt'
+import descricaoJson from './files/descricao.json'
 
 const logo = new Logo()
 logo.render()
@@ -23,6 +24,10 @@ body.innerHTML += warnning
 // Import arquivo texto
 const frase = fraseTxt
 console.log('frase:', fraseTxt.toUpperCase())
+
+// Importando arquivo JSON
+const descriptionObj = descricaoJson
+console.log('descriptionObj', descriptionObj)
 
 // Babel spread
 const obj = {a: 1, b: 2, c: 3, d:4}
