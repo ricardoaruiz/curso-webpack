@@ -9,7 +9,8 @@ module.exports = {
     mode: 'development',
     module: {
         rules: [
-            { test: /\.css$/i, use: ['style-loader','css-loader'] }
+            { test: /\.css$/i, use: ['style-loader','css-loader'] },
+            { test: /\.(png|jpg?g|gif)$/i, use: ['file-loader']}
         ]
     }
 }
