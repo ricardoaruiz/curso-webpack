@@ -1,0 +1,26 @@
+.button {
+    background-color: #2a6ead;
+    color: #fff;
+    border: none;
+    border-radius: 0.4rem;
+    outline: none;
+    padding: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    .button-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        .button-img {
+            width: 1rem;
+            margin-right: 0.5rem;
+        }
+    }
+
+    &:hover {
+        filter: brightness(0.9);
+    }
+
+}
