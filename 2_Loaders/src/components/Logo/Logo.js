@@ -1,6 +1,6 @@
 import logo from '../../assets/images/webpack.png'
 
-import './Logo.css'
+import './Logo.scss'
 
 export class Logo {
 
