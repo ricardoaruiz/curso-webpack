@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const DotenvPlugin = require('dotenv-webpack');
 
 module.exports = {
     entry: './src/index.js',
@@ -28,6 +29,7 @@ module.exports = {
         new webpack.DefinePlugin({
             VERSION: JSON.stringify('1.0.123'),
             PORT: JSON.stringify('3000')
-        })
+        }),
+        new DotenvPlugin()
     ]    
 }
