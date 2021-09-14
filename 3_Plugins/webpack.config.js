@@ -24,6 +24,10 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'styles.css'
+        }),
+        new webpack.DefinePlugin({
+            VERSION: JSON.stringify('1.0.123'),
+            PORT: JSON.stringify('3000')
         })
     ]    
 }
