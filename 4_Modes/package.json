@@ -8,6 +8,7 @@
     "build:prod": "webpack --config webpack.production.config.js"
   },
   "devDependencies": {
+    "dotenv-webpack": "^7.0.3",
     "webpack": "^5.52.1",
     "webpack-cli": "^4.8.0"
   }

@@ -5,3 +5,5 @@ const y = sum(10,50)
 
 console.log(x)
 console.log(y)
+
+console.log('API_KEY =>', process.env.API_KEY)
