@@ -5,7 +5,7 @@ export const App = () => {
     return (
         <div>
             Wellcome to React with webpack
-            <Button />
+            <Button teste="abcdef" />
         </div>
     )
 }
