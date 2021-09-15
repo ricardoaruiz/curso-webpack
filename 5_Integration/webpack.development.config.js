@@ -4,12 +4,15 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/index.ts',
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist')
     },
     mode: 'development',
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js']
+    },
     devServer: {
         port: 8000,
         open: true,
@@ -19,6 +22,10 @@ module.exports = {
     },
     module: {
         rules: [
+            { 
+                test: /\.ts$/i, 
+                use: ['ts-loader'], exclude: /node_modules/
+            },
             {
                 test: /\.s[ac]ss$/i, use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
             },
