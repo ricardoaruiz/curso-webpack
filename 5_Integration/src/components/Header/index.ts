@@ -1,4 +1,6 @@
 import './style.scss'
+import logoSVG from '../../assets/images/webpack.svg'
+import logoPNG from '../../assets/images/webpack.png'
 
 type HeaderProps = {
     title: string
@@ -6,9 +8,21 @@ type HeaderProps = {
 
 export class Header {
     render({title}: HeaderProps) {
-        const h1 = document.createElement('h1');
-        h1.innerText = title
-        h1.classList.add('header')
-        document.querySelector('body').appendChild(h1)
+        
+        const imageSVG = document.createElement('img')
+        imageSVG.src = logoSVG
+
+        const imagePNG = document.createElement('img')
+        imagePNG.src = logoPNG
+
+        const text = document.createElement('p')
+        text.innerHTML = title
+
+        const header = document.createElement('div');
+        header.appendChild(imagePNG)
+        header.appendChild(imageSVG)
+        header.appendChild(text)
+        header.classList.add('header')
+        document.querySelector('body').appendChild(header)
     }
 }

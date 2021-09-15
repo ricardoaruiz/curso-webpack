@@ -24,13 +24,24 @@ module.exports = {
         rules: [
             { 
                 test: /\.ts$/i, 
-                use: ['ts-loader'], exclude: /node_modules/
+                use: ['ts-loader'], 
+                exclude: /node_modules/
             },
             {
-                test: /\.s[ac]ss$/i, use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+                test: /\.s[ac]ss$/i, 
+                use: [
+                    MiniCssExtractPlugin.loader, 
+                    'css-loader', 
+                    'sass-loader'
+                ]
             },
             {
-                test: /\.(ttf|woff|woff2)$/i, loader: 'url-loader'
+                test: /\.(ttf|woff|woff2)$/i, 
+                loader: 'url-loader'
+            },
+            { 
+                test: /\.(png|jpg?g|gif|svg)$/i, 
+                use: 'file-loader'
             }
         ]
     },
