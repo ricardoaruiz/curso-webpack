@@ -1,5 +1,6 @@
 import { BaseComponent } from "../BaseComponent";
 
+import template from './template.hbs'
 import './style.scss'
 
 export class Footer extends BaseComponent {
@@ -12,10 +13,6 @@ export class Footer extends BaseComponent {
     }
 
     buildTemplate(): string {
-        return `
-            <footer class="footer">
-                <p>${this.title}</p>
-            </footer>
-        `
+        return template({ title: this.title })
     }
 }

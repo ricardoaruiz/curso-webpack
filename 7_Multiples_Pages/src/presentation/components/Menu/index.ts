@@ -1,5 +1,6 @@
 import { BaseComponent } from "../BaseComponent";
 
+import template from './template.hbs'
 import './style.scss'
 
 type MenuItem = {
@@ -17,17 +18,7 @@ export class Menu extends BaseComponent {
   }
 
   buildTemplate(): string {
-    return `
-      <nav>
-        <ul class="menu">
-          ${this.items.map(({ href, title }) => `
-            <li>
-              <a href="${href}">${title}</a>
-            </li>
-          `)}
-        </ul>
-      </nav>
-    `
+    return template({ items: this.items })
   }
 
   getItems(): MenuItem[] {

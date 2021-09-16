@@ -41,7 +41,8 @@ module.exports = {
                 plugins: ['@babel/plugin-proposal-object-rest-spread']
             }
         }
-      }
+      },
+      { test: /\.hbs$/, loader: "handlebars-loader" }
     ]
   },
   plugins: [

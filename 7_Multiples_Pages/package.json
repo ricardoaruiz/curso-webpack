@@ -6,7 +6,8 @@
   "scripts": {
     "build:prod": "webpack --config webpack.production.config.js",
     "build:dev": "webpack --config webpack.development.config.js",
-    "dev": "webpack serve --config webpack.development.config.js"
+    "dev": "webpack serve --config webpack.development.config.js",
+    "prod": "yarn build:prod && http-server -p=9000"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
@@ -15,7 +16,10 @@
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.2.0",
+    "handlebars": "^4.7.7",
+    "handlebars-loader": "^1.7.1",
     "html-webpack-plugin": "^5.3.2",
+    "http-server": "^13.0.2",
     "mini-css-extract-plugin": "^2.3.0",
     "node-sass": "^6.0.1",
     "sass": "^1.41.0",
@@ -27,5 +31,6 @@
     "webpack": "^5.52.1",
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.2.1"
-  }
+  },
+  "dependencies": {}
 }

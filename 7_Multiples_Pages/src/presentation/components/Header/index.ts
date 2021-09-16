@@ -1,5 +1,6 @@
 import { BaseComponent } from "../BaseComponent";
 
+import template from './template.hbs'
 import './style.scss'
 
 export class Header extends BaseComponent {
@@ -12,10 +13,6 @@ export class Header extends BaseComponent {
   }
 
   buildTemplate(): string {
-    return `
-      <header id="app-header">
-        <p>${this.title}</p>
-      </header>
-    `
+    return template({ title: this.title })
   }
 }
