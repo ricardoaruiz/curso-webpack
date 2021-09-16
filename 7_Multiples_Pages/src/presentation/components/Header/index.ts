@@ -1,17 +1,21 @@
+import { AbstractComponent } from '../AbstractComponent'
+
 import './style.scss'
 
-export class Header {
+export class Header extends AbstractComponent {
 
   private title: string
 
-  constructor(title: string) {
+  constructor(title: string, injectPoint?: string) {
+    super(injectPoint)
     this.title = title
   }
 
-  render() {
-    const header = document.createElement('header')
-    header.id = "app-header"
-    header.innerHTML = `<p>${this.title}</p>`
-    document.querySelector('body').firstChild.before(header)
+  buildTemplate(): string {
+    return `
+      <header id="app-header">
+        <p>${this.title}</p>
+      </header>
+    `
   }
 }

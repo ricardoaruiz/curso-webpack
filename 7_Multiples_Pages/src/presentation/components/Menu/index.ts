@@ -1,3 +1,5 @@
+import { AbstractComponent } from '../AbstractComponent'
+
 import './style.scss'
 
 type MenuItem = {
@@ -5,31 +7,30 @@ type MenuItem = {
   title: string
 }
 
-export class Menu {
+export class Menu extends AbstractComponent {
 
   private items: MenuItem[]
-  private injectPoint?: string
 
-  constructor(items: MenuItem[] = [], injectPoint = 'menu') {
+  constructor(items: MenuItem[] = [], injectPoint?: string) {
+    super(injectPoint)
     this.items = items
-    this.injectPoint = injectPoint
-    console.log('injectPoint', injectPoint)
   }
 
-  buildItem(href: string, title: string) {
-    const item = document.createElement('li')
-    const link = document.createElement('a')
-    link.href = href
-    link.innerText = title
-    item.appendChild(link)
-    return item
+  buildTemplate(): string {
+    return `
+      <nav>
+        <ul class="menu">
+          ${this.items.map(({ href, title }) => `
+            <li>
+              <a href="${href}">${title}</a>
+            </li>
+          `)}
+        </ul>
+      </nav>
+    `
   }
 
-  render() {
-    console.log(this.injectPoint)
-    const menu = document.createElement('ul')
-    menu.classList.add('menu')
-    this.items.forEach(({ href, title }) => menu.appendChild(this.buildItem(href,title)))
-    document.querySelector(`#${this.injectPoint}`).appendChild(menu)
+  getItems(): MenuItem[] {
+    return [ ...this.items ]
   }
 }
