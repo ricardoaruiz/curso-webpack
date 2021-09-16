@@ -1,6 +1,6 @@
-import { BasePage } from './BasePage'
+import { BasePage } from '../BasePage'
 
-import '../../styles/contact.scss';
+import './contact.scss';
 class ContactPage extends BasePage {
 
     constructor() {

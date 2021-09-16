@@ -1,7 +1,13 @@
 import { Header, Menu, Footer } from '../../components'
 import itemsMenu from '../../menu.json'
 
+import '../../styles/global.scss'
 import './style.scss'
+
+type BasePageProps = {
+  headerTitle?: string
+  footerTitle?: string
+}
 
 export class BasePage {
 
@@ -9,10 +15,10 @@ export class BasePage {
   protected menu: Menu
   protected footer: Footer
   
-  constructor() {
-    this.header = new Header('Webpack multiples pages', 'header')
+  constructor(params?: BasePageProps) {
+    this.header = new Header(params?.headerTitle || 'Webpack multiples pages', 'header')
     this.menu = new Menu(itemsMenu.items, 'menu')
-    this.footer = new Footer('Developed by Ricardo Ruiz', 'footer')
+    this.footer = new Footer(params?.footerTitle || 'Developed by Ricardo Ruiz', 'footer')
   }
   
   render() {

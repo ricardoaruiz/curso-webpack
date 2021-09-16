@@ -5,9 +5,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: './src/presentation/pages/index.ts',
-    about: './src/presentation/pages/about.ts',
-    contact: './src/presentation/pages/contact.ts'
+    index: './src/presentation/pages/Home/index.ts',
+    about: './src/presentation/pages/About/index.ts',
+    contact: './src/presentation/pages/Contact/index.ts'
   },
   output: {
     filename: '[name].[contenthash].js',
@@ -46,7 +46,7 @@ module.exports = {
         filename: '[name].[contenthash].css'
       }),
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'src/templates/page.ejs'),
+        template: path.resolve(__dirname, 'src/presentation/templates/page.ejs'),
         filename: 'index.html',
         inject: 'body',
         chunks: ['index'],
@@ -55,7 +55,7 @@ module.exports = {
         },
       }),
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'src/templates/page.ejs'),
+        template: path.resolve(__dirname, 'src/presentation/templates/page.ejs'),
         filename: 'about.html',
         inject: 'body',
         chunks: ['about'],
@@ -64,7 +64,7 @@ module.exports = {
         },
       }),
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'src/templates/page.ejs'),
+        template: path.resolve(__dirname, 'src/presentation/templates/page.ejs'),
         filename: 'contact.html',
         inject: 'body',
         chunks: ['contact'],
