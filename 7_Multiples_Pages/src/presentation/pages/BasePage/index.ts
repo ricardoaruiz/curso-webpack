@@ -1,4 +1,4 @@
-import { Header, Menu, Footer } from '../.'
+import { Header, Menu, Footer } from '../../components'
 import itemsMenu from '../../menu.json'
 
 import './style.scss'

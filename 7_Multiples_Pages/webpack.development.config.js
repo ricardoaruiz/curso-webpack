@@ -5,9 +5,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: './src/presentation/index.ts',
-    about: './src/presentation/about.ts',
-    contact: './src/presentation/contact.ts'
+    index: './src/presentation/pages/index.ts',
+    about: './src/presentation/pages/about.ts',
+    contact: './src/presentation/pages/contact.ts'
   },
   output: {
     filename: '[name].[contenthash].js',
