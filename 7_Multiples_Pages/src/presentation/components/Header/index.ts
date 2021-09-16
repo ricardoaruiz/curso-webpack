@@ -1,8 +1,8 @@
-import { AbstractComponent } from '../AbstractComponent'
+import { BaseComponent } from "../BaseComponent";
 
 import './style.scss'
 
-export class Header extends AbstractComponent {
+export class Header extends BaseComponent {
 
   private title: string
 

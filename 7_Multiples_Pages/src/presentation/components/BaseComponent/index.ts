@@ -1,4 +1,4 @@
-export abstract class AbstractComponent {
+export abstract class BaseComponent {
 
     protected injectPoint?: string
 

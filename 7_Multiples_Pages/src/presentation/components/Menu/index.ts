@@ -1,4 +1,4 @@
-import { AbstractComponent } from '../AbstractComponent'
+import { BaseComponent } from "../BaseComponent";
 
 import './style.scss'
 
@@ -7,7 +7,7 @@ type MenuItem = {
   title: string
 }
 
-export class Menu extends AbstractComponent {
+export class Menu extends BaseComponent {
 
   private items: MenuItem[]
 

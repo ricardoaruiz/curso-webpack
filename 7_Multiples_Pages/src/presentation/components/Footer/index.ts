@@ -1,8 +1,8 @@
-import { AbstractComponent } from "../AbstractComponent";
+import { BaseComponent } from "../BaseComponent";
 
 import './style.scss'
 
-export class Footer extends AbstractComponent {
+export class Footer extends BaseComponent {
 
     private title: string
 
