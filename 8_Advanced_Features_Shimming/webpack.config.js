@@ -3,7 +3,17 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        index: {
+            import: './src/index.js',
+            dependOn: 'shared'
+        },
+        teste: {
+            import: './src/teste.js',
+            dependOn: 'shared'
+        },
+        shared: ['lodash']
+    },
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist')
@@ -12,6 +22,7 @@ module.exports = {
     devServer: {
         port: 8000,
         open: true,
+        hot: false,
         historyApiFallback: true
     },
     module: {
