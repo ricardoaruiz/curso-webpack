@@ -1,18 +1,20 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
         index: {
             import: './src/index.js',
-            dependOn: 'shared'
+            dependOn: ['lodash']
         },
         teste: {
             import: './src/teste.js',
-            dependOn: 'shared'
+            dependOn: ['lodash','jquery']
         },
-        shared: ['lodash']
+        lodash: 'lodash',
+        jquery: 'jquery'
     },
     output: {
         filename: '[name].js',
@@ -31,8 +33,12 @@ module.exports = {
         ]
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new webpack.ProvidePlugin({
             _: 'lodash'
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery'
         }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
