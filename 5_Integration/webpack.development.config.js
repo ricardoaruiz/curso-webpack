@@ -48,6 +48,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'public/index.html'),
             filename: 'index.html',
             title: 'Integrations with external libs',
             inject: 'body'

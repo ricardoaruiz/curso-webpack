@@ -23,6 +23,6 @@ export class Header {
         header.appendChild(imageSVG)
         header.appendChild(text)
         header.classList.add('header')
-        document.querySelector('body').appendChild(header)
+        document.querySelector('body').insertAdjacentHTML('afterbegin', header.outerHTML)
     }
 }
