@@ -17,6 +17,7 @@
     "@types/react": "^17.0.22",
     "@types/react-dom": "^17.0.9",
     "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.3.0",
     "html-webpack-plugin": "^5.3.2",
     "mini-css-extract-plugin": "^2.3.0",
