@@ -47,7 +47,7 @@ module.exports = {
             name: 'App',
             remotes: {
                 HomeApp: 'HomeApp@http://localhost:9002/remoteEntry.js',
-                ContactApp: 'HomeApp@http://localhost:9003/remoteEntry.js'
+                ContactApp: 'ContactApp@http://localhost:9003/remoteEntry.js'
             }
         })
     ],

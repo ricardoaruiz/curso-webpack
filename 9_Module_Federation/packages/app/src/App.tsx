@@ -1,27 +1,45 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { 
     BrowserRouter as Router, 
     Switch, 
     Route, 
-    Link, 
-    BrowserRouter 
+    Link
 } from 'react-router-dom'
+
+const HomePage = React.lazy(() => import('HomeApp/HomePage'))
+const ContactPage = React.lazy(() => import('ContactApp/ContactPage'))
 
 import './App.scss'
 
-const App: React.VFC = () => (
-    <Router>
-        <nav>
-            <ul>
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="/contact">Contact</Link>
-                </li>
-            </ul>
-        </nav>
-    </Router>
-)
+const App: React.VFC = () => {
+    
+    return (
+        <Router>
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/contact">Contact</Link>
+                    </li>
+                </ul>
+            </nav>
+
+            <Switch>
+                <Route exact path="/">
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <HomePage />
+                    </Suspense>
+                </Route>
+                <Route exact path="/contact">
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <ContactPage />
+                    </Suspense>
+                </Route>
+            </Switch>
+        </Router>
+    )
+}
 
 export default App

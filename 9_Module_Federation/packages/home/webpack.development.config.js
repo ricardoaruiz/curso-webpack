@@ -2,7 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
+const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
     entry: './src/index.ts',
@@ -15,7 +15,6 @@ module.exports = {
     devServer: {
         port: 9002,
         hot: true,
-        open: true,
         historyApiFallback: true
     },
     resolve: {
@@ -53,7 +52,7 @@ module.exports = {
             name: 'HomeApp',
             filename: 'remoteEntry.js',
             exposes: {
-                './HomePage': './src/Home'
+                './HomePage':'./src/Home'
             }
         })
     ],

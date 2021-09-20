@@ -2,7 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
+const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
     entry: './src/index.ts',
@@ -53,7 +53,7 @@ module.exports = {
             name: 'App',
             remotes: {
                 HomeApp: 'HomeApp@http://localhost:9002/remoteEntry.js',
-                ContactApp: 'HomeApp@http://localhost:9003/remoteEntry.js'
+                ContactApp: 'ContactApp@http://localhost:9003/remoteEntry.js'
             }
         })
     ],
