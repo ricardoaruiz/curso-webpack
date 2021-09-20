@@ -48,6 +48,13 @@ module.exports = {
             template: path.resolve(__dirname, './public/index.html'),
             inject: 'body',
             title: 'App'
+        }),
+        new ModuleFederationPlugin({
+            name: 'App',
+            remotes: {
+                HomeApp: 'HomeApp@http://localhost:9002/remoteEntry.js',
+                ContactApp: 'HomeApp@http://localhost:9003/remoteEntry.js'
+            }
         })
     ],
     optimization: {

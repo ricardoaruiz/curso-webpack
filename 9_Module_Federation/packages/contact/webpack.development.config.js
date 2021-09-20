@@ -48,6 +48,13 @@ module.exports = {
             template: path.resolve(__dirname, './public/index.html'),
             inject: 'body',
             title: 'App'
+        }),
+        new ModuleFederationPlugin({
+            name: 'ContactApp',
+            filename: 'remoteEntry.js',
+            exposes: {
+                './ContactPage': './src/Contact'
+            }
         })
     ],
     optimization: {
