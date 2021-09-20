@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 
 module.exports = {
@@ -23,7 +24,7 @@ module.exports = {
             { test: /\.(ts|tsx)$/, use: ['ts-loader'], exclude: /node-modules/},
             {
                 test: /\.(sass|scss)$/,
-                use: ['style-loader', 'css-loader','sass-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader','sass-loader']
             }
         ]
     },
@@ -39,6 +40,9 @@ module.exports = {
             exposes: {
                 './HomePage': './src/Home'
             }
+        }),
+        new MiniCssExtractPlugin({
+            filename: 'styles.css'
         })
     ]
 }
