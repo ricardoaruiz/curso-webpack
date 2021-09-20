@@ -9,23 +9,18 @@ module.exports = {
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, './dist'),
-        publicPath: 'http://localhost:8082/'
+        publicPath: 'http://localhost:8081/'
     },
-    mode: 'development',
+    mode: 'production',
     resolve: {
         extensions: ['.tsx', '.ts', '.js']
-    },
-    devServer: {
-        port: 8082,
-        hot: true,
-        historyApiFallback: true
     },
     module: {
         rules: [
             { test: /\.(ts|tsx)$/, use: ['ts-loader'], exclude: /node-modules/},
             {
                 test: /\.(sass|scss)$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader','sass-loader']
             }
         ]
     },
@@ -37,14 +32,14 @@ module.exports = {
             title: 'App'
         }),
         new ModuleFederationPlugin({
-            name: 'ContactApp',
+            name: 'HomeApp',
             filename: 'remoteEntry.js',
             exposes: {
-                './ContactPage': './src/Contact'
+                './HomePage': './src/Home'
             }
         }),
         new MiniCssExtractPlugin({
-            filename: 'styles.css'
+            filename: '[name].[contenthash].css'
         })
     ]
 }
