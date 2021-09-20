@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/index.ts',
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, './dist'),
@@ -11,7 +11,7 @@ module.exports = {
     },
     mode: 'development',
     resolve: {
-        extensions: ['.jsx', '.js', '.json']
+        extensions: ['.tsx', '.ts', '.js']
     },
     devServer: {
         port: 8081,
@@ -20,13 +20,7 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                test: /\.jsx?$/,
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-react']
-                }
-            },
+            { test: /\.(ts|tsx)$/, use: ['ts-loader'], exclude: /node-modules/},
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']

@@ -2,7 +2,7 @@ import React from 'react'
 
 import './Contact.css'
 
-const Contact = () => (
+const Contact: React.VFC = () => (
     <div className="contact">
         <h1>Contact</h1>
     </div>

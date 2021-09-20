@@ -12,7 +12,7 @@ const ContactPage = React.lazy(() => import("ContactApp/ContactPage"));
 
 import './App.css'
 
-const App = () => (
+const App: React.VFC = () => (
     <Router>
         <div className="app">
             <ul>
