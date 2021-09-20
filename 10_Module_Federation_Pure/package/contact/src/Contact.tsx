@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './Contact.css'
+import './Contact.scss'
 
 const Contact: React.VFC = () => (
     <div className="contact">

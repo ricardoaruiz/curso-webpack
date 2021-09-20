@@ -10,7 +10,7 @@ import {
 const HomePage = React.lazy(() => import("HomeApp/HomePage"));
 const ContactPage = React.lazy(() => import("ContactApp/ContactPage"));
 
-import './App.css'
+import './App.scss'
 
 const App: React.VFC = () => (
     <Router>
