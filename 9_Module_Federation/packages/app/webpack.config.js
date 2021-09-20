@@ -1,9 +1,10 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/index.ts',
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
@@ -17,16 +18,18 @@ module.exports = {
         historyApiFallback: true
     },
     resolve: {
-        extensions: ['.jsx', '.js', '.json']
+        extensions: ['.tsx', '.ts', '.js', '.json']
     },
     module: {
         rules: [
             {
                 test: /\.jsx?$/,
                 loader: require.resolve('babel-loader'),
-                options: {
-                    presets: [require.resolve('@babel/preset-react')]
-                }
+            },
+            {
+                test: /\.(ts|tsx)$/,
+                use: ['ts-loader'],
+                exclude: /node-modules/
             },
             {
                 test: /\.scss$/,
@@ -35,11 +38,15 @@ module.exports = {
         ]
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.resolve(__dirname, './public/index.html'),
             inject: 'body',
             title: 'App'
         })
-    ]
+    ],
+    optimization: {
+        runtimeChunk: true
+    }
 }

@@ -9,7 +9,7 @@ import {
 
 import './App.scss'
 
-const App = () => (
+const App: React.VFC = () => (
     <Router>
         <nav>
             <ul>
