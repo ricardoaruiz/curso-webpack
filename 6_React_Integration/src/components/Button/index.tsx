@@ -7,9 +7,8 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 }
 
 export const Button: React.FC<ButtonProps> = (props) => {
-    console.log('props.teste', props.teste)
     return (
-        <button className="button">Clique me</button>
+        <button className="button">Clique me {props.teste}</button>
     )
 }
 
